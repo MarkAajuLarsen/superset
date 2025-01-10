@@ -109,6 +109,7 @@ export type TableAnnotationLayer = BaseAnnotationLayer &
 
 export type FormulaAnnotationLayer = BaseAnnotationLayer & {
   annotationType: AnnotationType.Formula;
+  includeInTooltip?: boolean;
   // the mathjs parseable formula
   sourceType?: AnnotationSourceType.Undefined;
   value: string;

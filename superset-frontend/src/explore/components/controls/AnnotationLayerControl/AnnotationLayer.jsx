@@ -195,6 +195,7 @@ class AnnotationLayer extends PureComponent {
       // refData
       isNew: !name,
       slice: null,
+      includeInTooltip: false,
     };
     this.submitAnnotation = this.submitAnnotation.bind(this);
     this.deleteAnnotation = this.deleteAnnotation.bind(this);
@@ -528,6 +529,7 @@ class AnnotationLayer extends PureComponent {
         'descriptionColumns',
         'timeColumn',
         'intervalEndColumn',
+        'includeInTooltip',
       ];
       const newAnnotation = {};
       annotationFields.forEach(field => {
@@ -886,8 +888,15 @@ class AnnotationLayer extends PureComponent {
   }
 
   render() {
-    const { isNew, name, annotationType, sourceType, show, showLabel } =
-      this.state;
+    const {
+      isNew,
+      name,
+      annotationType,
+      sourceType,
+      show,
+      showLabel,
+      includeInTooltip,
+    } = this.state;
     const isValid = this.isValidForm();
     const metadata = getChartMetadataRegistry().get(this.props.vizType);
     const supportedAnnotationTypes = metadata
@@ -925,6 +934,17 @@ class AnnotationLayer extends PureComponent {
                 value={!show}
                 onChange={v => this.setState({ show: !v })}
               />
+              {annotationType === ANNOTATION_TYPES.FORMULA && (
+                <CheckboxControl
+                  name="annotation-layer-count-in-tooltip"
+                  label={t('Include in tooltip')}
+                  value={includeInTooltip}
+                  onChange={v => this.setState({ includeInTooltip: v })}
+                  description={t(
+                    'When this is on the value of the annotation will be included in the rich tooltip',
+                  )}
+                />
+              )}
               <CheckboxControl
                 name="annotation-label-show"
                 label={t('Show label')}

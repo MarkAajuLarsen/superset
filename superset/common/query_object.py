@@ -380,6 +380,7 @@ class QueryObject:  # pylint: disable=too-many-instance-attributes
         annotation_fields = [
             "annotationType",
             "descriptionColumns",
+            "includeInTooltip",
             "intervalEndColumn",
             "name",
             "overrides",

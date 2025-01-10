@@ -243,6 +243,10 @@
             "nullable": true,
             "type": "boolean"
           },
+          "includeInTooltip": {
+            "description": "Should the value of the annotation layer be included in the tooltip",
+            "type": "boolean"
+          },
           "intervalEndColumn": {
             "description": "Column containing end of interval. Only applies to interval layers",
             "nullable": true,

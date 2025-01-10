@@ -375,7 +375,7 @@ export default function transformProps(
   annotationLayers
     .filter((layer: AnnotationLayer) => layer.show)
     .forEach((layer: AnnotationLayer) => {
-      if (isFormulaAnnotationLayer(layer))
+      if (isFormulaAnnotationLayer(layer) && layer.includeInTooltip)
         series.push(
           transformFormulaAnnotation(
             layer,

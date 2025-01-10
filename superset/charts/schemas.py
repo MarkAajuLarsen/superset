@@ -1016,6 +1016,10 @@ class AnnotationLayerSchema(Schema):
         },
         allow_none=True,
     )
+    includeInTooltip = fields.Boolean(
+        metadata={ "description": "Should the value from annotation layer be included in the tooltip." },
+        allow_none=True,
+    )
     intervalEndColumn = fields.String(  # noqa: N815
         metadata={
             "description": "Column containing end of interval. "
