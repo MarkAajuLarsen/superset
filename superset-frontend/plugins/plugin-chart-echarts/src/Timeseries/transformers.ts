@@ -383,6 +383,7 @@ export function transformFormulaAnnotation(
     },
     type: 'line',
     smooth: true,
+    includeInTooltip: layer.includeInTooltip,
     data: evalFormula(layer, data, xAxisCol, xAxisType).map(([x, y]) =>
       isHorizontal ? [y, x] : [x, y],
     ),

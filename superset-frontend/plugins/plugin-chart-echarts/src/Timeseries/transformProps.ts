@@ -375,7 +375,7 @@ export default function transformProps(
   annotationLayers
     .filter((layer: AnnotationLayer) => layer.show)
     .forEach((layer: AnnotationLayer) => {
-      if (isFormulaAnnotationLayer(layer) && layer.includeInTooltip)
+      if (isFormulaAnnotationLayer(layer))
         series.push(
           transformFormulaAnnotation(
             layer,
@@ -548,6 +548,7 @@ export default function transformProps(
       show: !inContextMenu,
       trigger: richTooltip ? 'axis' : 'item',
       formatter: (params: any) => {
+        console.log(params);
         const [xIndex, yIndex] = isHorizontal ? [1, 0] : [0, 1];
         const xValue: number = richTooltip
           ? params[0].value[xIndex]
